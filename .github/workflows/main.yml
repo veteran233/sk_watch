@@ -20,7 +20,10 @@ jobs:
           architecture: 'x64'
 
       - name: Env
-        run: pip install requests
+        run: |
+          pip install requests
+          git config --global user.email "a1328906205@live.com"
+          git config --global user.name "veteran233"
 
       - name: Run
         run: python getRawSkTable.py
