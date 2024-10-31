@@ -1,0 +1,38 @@
+name: Auto Catch Raw Data
+
+on:
+  schedule:
+    - cron: '0 6,18 * * *'
+  workflow_dispatch:
+
+permissions:
+  pull-requests: write
+
+jobs:
+  wf_getRawSkTable:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with: 
+          python-version: '3.10'
+          architecture: 'x64'
+
+      - name: Env
+        run: |
+          pip install requests
+          git config --global user.email "a1328906205@live.com"
+          git config --global user.name "veteran233"
+
+      - name: Run
+        run: python getRawSkTable.py
+
+      - name: Push
+        run: |
+          git add .
+          git commit -m "update data"
+          git push -u origin
