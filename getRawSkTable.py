@@ -1,6 +1,7 @@
 from utils.data import getRawData
 from utils.decryption import getMainjs, getSeed
 from datetime import datetime
+from zoneinfo import ZoneInfo
 import pickle
 import asyncio
 
@@ -22,7 +23,7 @@ if __name__ == '__main__':
         getSeed()
         ret = asyncio.run(_f())
 
-    dt = datetime.now()
+    dt = datetime.now(tz=ZoneInfo('Asia/Shanghai'))
     with open(
             f'./data/{dt.year:04d}{dt.month:02d}{dt.day:02d}_{dt.hour:02d}.pkl',
             'wb') as f:
