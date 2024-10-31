@@ -30,5 +30,6 @@ jobs:
 
       - name: Push
         run: |
+          git add .
           git commit -m "update data"
           git push -u origin
