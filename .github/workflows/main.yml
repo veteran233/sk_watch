@@ -5,6 +5,9 @@ on:
     - cron: '0 6,18 * * *'
   workflow_dispatch:
 
+permissions:
+  pull-requests: write
+
 jobs:
   wf_getRawSkTable:
 
