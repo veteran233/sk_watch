@@ -7,6 +7,7 @@ on:
 
 permissions:
   pull-requests: write
+  repository-projects: write
 
 jobs:
   wf_getRawSkTable:
