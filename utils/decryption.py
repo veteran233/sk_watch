@@ -49,9 +49,8 @@ def _getFuncPos(body: str, is_reverse=False):
             break
 
     if is_reverse:
-        for x, y in ret:
-            x = len(body) - x
-            y = len(body) - y
+        for _i in range(len(ret)):
+            ret[_i] = (MAX_P - ret[_i][1], MAX_P - ret[_i][0])
     return ret
 
 
